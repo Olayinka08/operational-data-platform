@@ -1,0 +1,66 @@
+[
+  {
+    "customer_name": "UNKNOWN",
+    "total_invoiced": 93360.20999999999,
+    "paid_amount": 46991.170000000006,
+    "total_orders": 20,
+    "sla_breaches": 11,
+    "health_score": 55.0
+  },
+  {
+    "customer_name": "ClearPath Logistics",
+    "total_invoiced": 73505.13,
+    "paid_amount": 64920.03,
+    "total_orders": 13,
+    "sla_breaches": 6,
+    "health_score": 83.0
+  },
+  {
+    "customer_name": "UNKNOWN",
+    "total_invoiced": 50718.48999999999,
+    "paid_amount": 33137.89,
+    "total_orders": 16,
+    "sla_breaches": 10,
+    "health_score": 61.0
+  },
+  {
+    "customer_name": "UNKNOWN",
+    "total_invoiced": 46234.23999999999,
+    "paid_amount": 26403.05,
+    "total_orders": 11,
+    "sla_breaches": 7,
+    "health_score": 56.0
+  },
+  {
+    "customer_name": "Meridian Retail",
+    "total_invoiced": 45360.24999999999,
+    "paid_amount": 36410.68,
+    "total_orders": 14,
+    "sla_breaches": 6,
+    "health_score": 79.0
+  },
+  {
+    "customer_name": "UrbanMobility Co",
+    "total_invoiced": 45089.240000000005,
+    "paid_amount": 23194.58,
+    "total_orders": 17,
+    "sla_breaches": 12,
+    "health_score": 55.0
+  },
+  {
+    "customer_name": "BlueStar Finance",
+    "total_invoiced": 41112.030000000006,
+    "paid_amount": 27672.78,
+    "total_orders": 15,
+    "sla_breaches": 8,
+    "health_score": 67.0
+  },
+  {
+    "customer_name": "Apex Manufacturing",
+    "total_invoiced": 30669.830000000005,
+    "paid_amount": 24273.870000000003,
+    "total_orders": 24,
+    "sla_breaches": 10,
+    "health_score": 62.0
+  }
+]

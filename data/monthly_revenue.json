@@ -1,0 +1,122 @@
+[
+  {
+    "month": "2023-01-01",
+    "total_invoiced": 7649.4400000000005,
+    "total_paid": 5560.2300000000005
+  },
+  {
+    "month": "2023-02-01",
+    "total_invoiced": 20229.48,
+    "total_paid": 12288.189999999999
+  },
+  {
+    "month": "2023-03-01",
+    "total_invoiced": 3946.1800000000003,
+    "total_paid": 3946.1800000000003
+  },
+  {
+    "month": "2023-04-01",
+    "total_invoiced": 36738.12,
+    "total_paid": 33106.29
+  },
+  {
+    "month": "2023-05-01",
+    "total_invoiced": 7303.789999999999,
+    "total_paid": 6476.549999999999
+  },
+  {
+    "month": "2023-06-01",
+    "total_invoiced": 27373.23,
+    "total_paid": 27373.23
+  },
+  {
+    "month": "2023-07-01",
+    "total_invoiced": 10598.349999999999,
+    "total_paid": 10598.349999999999
+  },
+  {
+    "month": "2023-08-01",
+    "total_invoiced": 20521.59,
+    "total_paid": 10230.85
+  },
+  {
+    "month": "2023-09-01",
+    "total_invoiced": 34941.82,
+    "total_paid": 34534.32
+  },
+  {
+    "month": "2023-10-01",
+    "total_invoiced": 11617.64,
+    "total_paid": 0.0
+  },
+  {
+    "month": "2023-11-01",
+    "total_invoiced": 14291.05,
+    "total_paid": 3570.03
+  },
+  {
+    "month": "2023-12-01",
+    "total_invoiced": 11406.54,
+    "total_paid": 11406.54
+  },
+  {
+    "month": "2024-01-01",
+    "total_invoiced": 15997.56,
+    "total_paid": 14084.849999999999
+  },
+  {
+    "month": "2024-02-01",
+    "total_invoiced": 10689.21,
+    "total_paid": 10689.21
+  },
+  {
+    "month": "2024-03-01",
+    "total_invoiced": 9987.720000000001,
+    "total_paid": 9987.720000000001
+  },
+  {
+    "month": "2024-04-01",
+    "total_invoiced": 9816.29,
+    "total_paid": 9816.29
+  },
+  {
+    "month": "2024-05-01",
+    "total_invoiced": 2814.2,
+    "total_paid": 2814.2
+  },
+  {
+    "month": "2024-06-01",
+    "total_invoiced": 5986.07,
+    "total_paid": 5986.07
+  },
+  {
+    "month": "2024-07-01",
+    "total_invoiced": 20390.5,
+    "total_paid": 17927.5
+  },
+  {
+    "month": "2024-08-01",
+    "total_invoiced": 12205.970000000001,
+    "total_paid": 12205.970000000001
+  },
+  {
+    "month": "2024-09-01",
+    "total_invoiced": 19587.71,
+    "total_paid": 17117.48
+  },
+  {
+    "month": "2024-10-01",
+    "total_invoiced": 6585.9,
+    "total_paid": 6585.9
+  },
+  {
+    "month": "2024-11-01",
+    "total_invoiced": 6549.58,
+    "total_paid": 6549.58
+  },
+  {
+    "month": "2024-12-01",
+    "total_invoiced": 14234.93,
+    "total_paid": 10148.52
+  }
+]

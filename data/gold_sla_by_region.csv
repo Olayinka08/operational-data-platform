@@ -1,0 +1,6 @@
+region,total_orders,delivered,on_time,late,on_time_rate_pct
+North,27,14,13,14,92.9
+East,32,19,15,14,78.9
+Central,25,16,10,15,62.5
+West,32,21,13,18,61.9
+South,14,9,5,9,55.6
