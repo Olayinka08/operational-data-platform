@@ -1,0 +1,86 @@
+name: Pipeline CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:   # allow manual trigger from GitHub UI
+
+jobs:
+  pipeline:
+    name: Run full pipeline and quality tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate raw source data
+        run: python scripts/generate_raw_data.py
+
+      - name: Bronze ingestion
+        run: python scripts/ingest.py
+
+      - name: Silver and Gold transformation
+        run: python scripts/transform.py
+
+      - name: Export dashboard JSON
+        run: python scripts/export_dashboard_data.py
+
+      - name: Run data quality tests
+        run: python tests/test_quality.py
+
+      - name: Upload DuckDB artifact (for inspection)
+        uses: actions/upload-artifact@v4
+        with:
+          name: platform-duckdb
+          path: data/processed/platform.duckdb
+          retention-days: 7
+
+  deploy-pages:
+    name: Deploy dashboard to GitHub Pages
+    needs: pipeline
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run full pipeline
+        run: |
+          python scripts/generate_raw_data.py
+          python scripts/ingest.py
+          python scripts/transform.py
+          python scripts/export_dashboard_data.py
+
+      - name: Copy JSON data into docs/
+        run: cp data/processed/gold_*.csv docs/data/ 2>/dev/null || true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          commit_message: "Deploy dashboard [skip ci]"

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operational Data Platform | Olayinka Bello</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --blue:    #2E75B6;
+      --dark:    #1a2332;
+      --surface: #1e2d42;
+      --card:    #243447;
+      --border:  #2e4060;
+      --text:    #e8edf4;
+      --muted:   #8fa3be;
+      --green:   #3dd68c;
+      --amber:   #f5a623;
+      --red:     #e05c5c;
+      --font:    'Segoe UI', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--font);
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    header .subtitle {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    header .badge {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    .author-line {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .author-line a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* KPI tiles */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .kpi-tile {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .kpi-tile .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-tile .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .kpi-tile .sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Charts grid */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .chart-card h2 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .chart-card .chart-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .chart-card canvas {
+      max-height: 280px;
+    }
+
+    /* Customer table */
+    .table-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .table-card h2 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .table-card .chart-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 0.65rem 0.8rem;
+      border-bottom: 1px solid #1e2d42;
+      color: var(--text);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(46, 117, 182, 0.07); }
+
+    .score-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .score-track {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .score-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    /* Pipeline architecture diagram */
+    .arch-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .arch-card h2 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .arch-card .chart-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pipe-stage {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.4rem;
+      text-align: center;
+      min-width: 160px;
+    }
+
+    .pipe-stage .stage-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .pipe-stage .stage-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .pipe-stage .stage-detail {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .pipe-arrow {
+      font-size: 1.4rem;
+      color: var(--blue);
+      padding: 0 0.5rem;
+      opacity: 0.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--blue); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .charts-grid { grid-template-columns: 1fr; }
+      main { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Operational Data Platform</h1>
+    <div class="subtitle">Bronze to Gold medallion pipeline | Multi-source harmonisation | Automated quality testing</div>
+    <div class="author-line" style="margin-top:0.5rem">
+      Built by <a href="https://linkedin.com/in/olayinka-bello-mba-04960b12a" target="_blank">Olayinka Bello</a>
+      &nbsp;|&nbsp; Python, SQL, DuckDB, GitHub Actions
+    </div>
+  </div>
+  <span class="badge">LIVE GOLD LAYER</span>
+</header>
+
+<main>
+
+  <!-- KPI tiles -->
+  <div class="kpi-row" id="kpi-row">
+    <div class="kpi-tile">
+      <div class="label">Total Invoiced</div>
+      <div class="value" id="kpi-invoiced">—</div>
+      <div class="sub">Paid + Pending</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="label">Total Paid</div>
+      <div class="value" id="kpi-paid">—</div>
+      <div class="sub" id="kpi-payrate">—</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="label">Total Invoices</div>
+      <div class="value" id="kpi-invoices">—</div>
+      <div class="sub">After deduplication</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="label">Avg Invoice Value</div>
+      <div class="value" id="kpi-avg">—</div>
+      <div class="sub">Per invoice</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="label">Quality Tests</div>
+      <div class="value" style="color: var(--green)">26/26</div>
+      <div class="sub">All checks passing</div>
+    </div>
+  </div>
+
+  <!-- Pipeline architecture -->
+  <div class="arch-card">
+    <h2>Pipeline Architecture</h2>
+    <div class="chart-sub">Medallion architecture: Raw sources to trusted gold metrics via automated cleaning and harmonisation</div>
+    <div class="pipeline">
+      <div class="pipe-stage">
+        <div class="stage-label">Sources</div>
+        <div class="stage-name">Raw CSVs</div>
+        <div class="stage-detail">Finance / Ops / Sales<br>Different formats, prefixes, duplicates</div>
+      </div>
+      <div class="pipe-arrow">&#8594;</div>
+      <div class="pipe-stage">
+        <div class="stage-label">Bronze</div>
+        <div class="stage-name">As-Is Ingestion</div>
+        <div class="stage-detail">ingest.py<br>355 rows loaded, metadata added</div>
+      </div>
+      <div class="pipe-arrow">&#8594;</div>
+      <div class="pipe-stage">
+        <div class="stage-label">Silver</div>
+        <div class="stage-name">Cleaned</div>
+        <div class="stage-detail">transform.py + SQL<br>Deduped, typed, IDs harmonised</div>
+      </div>
+      <div class="pipe-arrow">&#8594;</div>
+      <div class="pipe-stage">
+        <div class="stage-label">Gold</div>
+        <div class="stage-name">Trusted Metrics</div>
+        <div class="stage-detail">5 tables, 26/26 quality tests<br>Single agreed definitions</div>
+      </div>
+      <div class="pipe-arrow">&#8594;</div>
+      <div class="pipe-stage">
+        <div class="stage-label">Outputs</div>
+        <div class="stage-name">This Dashboard</div>
+        <div class="stage-detail">GitHub Pages<br>CI runs on every push</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts row -->
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <h2>Monthly Revenue</h2>
+      <div class="chart-sub">Total invoiced vs paid by month, across all regions</div>
+      <canvas id="revenueChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2>SLA Performance by Region</h2>
+      <div class="chart-sub">On-time delivery rate (%) per region — gold.sla_by_region</div>
+      <canvas id="slaChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2>Product Revenue Mix</h2>
+      <div class="chart-sub">Total invoiced value by product — gold.product_revenue</div>
+      <canvas id="productChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2>Customer Health Scores</h2>
+      <div class="chart-sub">Blended score: payment rate (50%) + SLA rate (50%)</div>
+      <canvas id="healthChart"></canvas>
+    </div>
+
+  </div>
+
+  <!-- Customer table -->
+  <div class="table-card">
+    <h2>Customer Health Detail</h2>
+    <div class="chart-sub">gold.customer_health — single view joining finance, ops, and sales systems on harmonised customer_id</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Invoiced</th>
+          <th>Paid</th>
+          <th>Orders</th>
+          <th>SLA Breaches</th>
+          <th>Health Score</th>
+        </tr>
+      </thead>
+      <tbody id="customer-tbody"></tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>
+  Operational Data Platform &nbsp;|&nbsp;
+  <a href="https://github.com/olayinkabello/operational-data-platform" target="_blank">View on GitHub</a>
+  &nbsp;|&nbsp;
+  Built by <a href="https://linkedin.com/in/olayinka-bello-mba-04960b12a" target="_blank">Olayinka Bello</a>
+  &nbsp;|&nbsp; Python, SQL, DuckDB, Chart.js, GitHub Actions
+</footer>
+
+<script>
+  const fmt  = v => v == null ? 'N/A' : '£' + Number(v).toLocaleString('en-GB', {maximumFractionDigits: 0});
+  const pct  = v => v == null ? 'N/A' : Number(v).toFixed(1) + '%';
+  const num  = v => v == null ? 'N/A' : Number(v).toLocaleString('en-GB');
+
+  const BLUE   = '#2E75B6';
+  const TEAL   = '#3dd68c';
+  const AMBER  = '#f5a623';
+  const RED    = '#e05c5c';
+  const PURPLE = '#a78bfa';
+  const ORANGE = '#fb923c';
+  const PINK   = '#f472b6';
+  const CYAN   = '#22d3ee';
+
+  const PALETTE = [BLUE, TEAL, AMBER, RED, PURPLE, ORANGE, PINK, CYAN];
+
+  const chartDefaults = {
+    plugins: { legend: { labels: { color: '#8fa3be', font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { color: '#8fa3be', font: { size: 10 } }, grid: { color: '#2e4060' } },
+      y: { ticks: { color: '#8fa3be', font: { size: 10 } }, grid: { color: '#2e4060' } }
+    }
+  };
+
+  async function load(file) {
+    // Try docs/data/ path (local dev), then relative data/ (GitHub Pages)
+    for (const base of ['data/', 'docs/data/']) {
+      try {
+        const r = await fetch(base + file);
+        if (r.ok) return r.json();
+      } catch (_) {}
+    }
+    return [];
+  }
+
+  async function init() {
+    const [kpis, monthly, sla, products, customers] = await Promise.all([
+      load('kpis.json'),
+      load('monthly_revenue.json'),
+      load('sla_by_region.json'),
+      load('product_revenue.json'),
+      load('customer_health.json'),
+    ]);
+
+    // KPI tiles
+    if (kpis.length) {
+      const k = kpis[0];
+      document.getElementById('kpi-invoiced').textContent  = fmt(k.total_revenue_invoiced);
+      document.getElementById('kpi-paid').textContent      = fmt(k.total_revenue_paid);
+      document.getElementById('kpi-payrate').textContent   = pct(k.payment_rate_pct) + ' payment rate';
+      document.getElementById('kpi-invoices').textContent  = num(k.total_invoices);
+      document.getElementById('kpi-avg').textContent       = fmt(k.avg_invoice_value);
+    }
+
+    // Revenue chart
+    if (monthly.length) {
+      const labels = monthly.map(r => r.month ? r.month.slice(0, 7) : '');
+      new Chart(document.getElementById('revenueChart'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: 'Invoiced', data: monthly.map(r => r.total_invoiced),
+              backgroundColor: BLUE + 'cc', borderRadius: 3 },
+            { label: 'Paid',     data: monthly.map(r => r.total_paid),
+              backgroundColor: TEAL + 'cc', borderRadius: 3 },
+          ]
+        },
+        options: {
+          ...chartDefaults,
+          plugins: { ...chartDefaults.plugins },
+          scales: {
+            x: { ...chartDefaults.scales.x, stacked: false },
+            y: { ...chartDefaults.scales.y,
+                 ticks: { ...chartDefaults.scales.y.ticks,
+                   callback: v => '£' + (v/1000).toFixed(0) + 'k' } }
+          }
+        }
+      });
+    }
+
+    // SLA chart
+    if (sla.length) {
+      new Chart(document.getElementById('slaChart'), {
+        type: 'bar',
+        data: {
+          labels: sla.map(r => r.region),
+          datasets: [{
+            label: 'On-time rate (%)',
+            data: sla.map(r => r.on_time_rate_pct),
+            backgroundColor: sla.map(r =>
+              r.on_time_rate_pct >= 80 ? TEAL + 'cc' :
+              r.on_time_rate_pct >= 60 ? AMBER + 'cc' : RED + 'cc'),
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          ...chartDefaults,
+          indexAxis: 'y',
+          scales: {
+            x: { ...chartDefaults.scales.x, min: 0, max: 100,
+                 ticks: { ...chartDefaults.scales.x.ticks, callback: v => v + '%' } },
+            y: { ...chartDefaults.scales.y }
+          }
+        }
+      });
+    }
+
+    // Product revenue
+    if (products.length) {
+      new Chart(document.getElementById('productChart'), {
+        type: 'doughnut',
+        data: {
+          labels: products.map(r => r.product_id),
+          datasets: [{
+            data: products.map(r => r.total_invoiced),
+            backgroundColor: PALETTE.slice(0, products.length),
+            borderWidth: 0,
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { labels: { color: '#8fa3be', font: { size: 11 } } }
+          },
+          cutout: '60%'
+        }
+      });
+    }
+
+    // Health scores bar chart
+    if (customers.length) {
+      new Chart(document.getElementById('healthChart'), {
+        type: 'bar',
+        data: {
+          labels: customers.map(r => r.customer_name),
+          datasets: [{
+            label: 'Health Score',
+            data: customers.map(r => r.health_score),
+            backgroundColor: customers.map(r =>
+              r.health_score >= 75 ? TEAL + 'cc' :
+              r.health_score >= 50 ? AMBER + 'cc' : RED + 'cc'),
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          ...chartDefaults,
+          scales: {
+            x: { ...chartDefaults.scales.x,
+                 ticks: { ...chartDefaults.scales.x.ticks,
+                   maxRotation: 30, minRotation: 30 } },
+            y: { ...chartDefaults.scales.y, min: 0, max: 100 }
+          }
+        }
+      });
+    }
+
+    // Customer table
+    if (customers.length) {
+      const tbody = document.getElementById('customer-tbody');
+      customers.forEach(r => {
+        const score = r.health_score || 0;
+        const color = score >= 75 ? '#3dd68c' : score >= 50 ? '#f5a623' : '#e05c5c';
+        tbody.innerHTML += `
+          <tr>
+            <td><strong>${r.customer_name || 'Unknown'}</strong></td>
+            <td>${fmt(r.total_invoiced)}</td>
+            <td>${fmt(r.paid_amount)}</td>
+            <td>${num(r.total_orders)}</td>
+            <td style="color:${r.sla_breaches > 3 ? '#e05c5c' : 'inherit'}">${num(r.sla_breaches)}</td>
+            <td>
+              <div class="score-bar">
+                <div class="score-track">
+                  <div class="score-fill" style="width:${score}%;background:${color}"></div>
+                </div>
+                <span style="color:${color};font-weight:600;min-width:2.5rem">${score}</span>
+              </div>
+            </td>
+          </tr>`;
+      });
+    }
+  }
+
+  init();
+</script>
+</body>
+</html>

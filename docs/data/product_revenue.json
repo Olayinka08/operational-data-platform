@@ -1,0 +1,27 @@
+[
+  {
+    "product_id": "P005",
+    "total_invoiced": 5653564.0,
+    "invoice_count": 29
+  },
+  {
+    "product_id": "P001",
+    "total_invoiced": 3748679.0,
+    "invoice_count": 29
+  },
+  {
+    "product_id": "P003",
+    "total_invoiced": 1493291.0,
+    "invoice_count": 21
+  },
+  {
+    "product_id": "P004",
+    "total_invoiced": 746983.0,
+    "invoice_count": 26
+  },
+  {
+    "product_id": "P002",
+    "total_invoiced": 683776.0,
+    "invoice_count": 15
+  }
+]

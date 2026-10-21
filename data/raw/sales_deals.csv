@@ -1,0 +1,101 @@
+deal_id,customer_id,customer_name,product_id,quantity,contract_value,close_date,deal_stage,sales_owner,industry,region
+DEAL-0001,SALES-C002,UrbanMobility Co,P002,3,2468.32,04-05-2024,Closed Lost,Eve S,Transport,East
+DEAL-0002,SALES-C003,NovaTech Systems,P005,5,9363.93,05-13-2023,Closed Lost,Eve S,Technology,North
+DEAL-0003,SALES-C002,UrbanMobility Co,P005,2,3843.3,06-15-2023,Closed Won,Ben T,Transport,East
+DEAL-0004,SALES-C005,Meridian Retail,P001,3,3381.34,07-18-2024,Closed Won,Ben T,Retail,East
+DEAL-0005,SALES-C002,UrbanMobility Co,P005,2,4073.45,08-17-2024,Closed Won,Ben T,Transport,Central
+DEAL-0006,SALES-C006,Apex Manufacturing,P005,1,2130.09,01-30-2023,Closed Won,Alice M,Manufacturing,Central
+DEAL-0007,SALES-C005,Meridian Retail,P002,5,3933.27,10-16-2024,Closed Won,David N,Retail,Central
+DEAL-0008,SALES-C005,Meridian Retail,P003,4,5693.85,12-02-2024,Closed Lost,Clara O,Retail,West
+DEAL-0009,SALES-C002,UrbanMobility Co,P001,2,2371.01,05-10-2024,Closed Lost,Ben T,,East
+DEAL-0010,SALES-C003,NovaTech Systems,P003,3,4710.78,12-20-2023,Closed Lost,Ben T,Technology,East
+DEAL-0011,SALES-C002,UrbanMobility Co,P003,2,2979.88,10-01-2023,Closed Lost,Ben T,Transport,South
+DEAL-0012,SALES-C002,UrbanMobility Co,P001,3,3920.68,09-22-2024,Closed Lost,Ben T,Transport,South
+DEAL-0013,SALES-C006,Apex Manufacturing,P005,3,5627.8,06-13-2023,Closed Lost,Eve S,Manufacturing,West
+DEAL-0014,SALES-C008,BlueStar Finance,P003,4,5427.81,02-07-2024,Negotiation,David N,Financial Services,South
+DEAL-0015,SALES-C004,ClearPath Logistics,P005,3,5458.39,10-16-2023,Closed Lost,Eve S,Logistics,West
+DEAL-0016,SALES-C005,Meridian Retail,P005,1,2138.87,03-17-2024,Closed Won,Clara O,Retail,East
+DEAL-0017,SALES-C007,Solaris Renewables,P003,1,1470.17,08-06-2024,Negotiation,Ben T,Energy,East
+DEAL-0018,SALES-C005,Meridian Retail,P001,4,4804.09,07-17-2024,Closed Won,Eve S,Retail,Central
+DEAL-0019,SALES-C002,UrbanMobility Co,P002,1,783.02,12-14-2023,Negotiation,Clara O,Transport,South
+DEAL-0020,SALES-C004,ClearPath Logistics,P005,5,9802.77,02-11-2023,Closed Won,Alice M,Logistics,South
+DEAL-0021,SALES-C006,Apex Manufacturing,P004,5,1982.8,09-12-2024,Negotiation,Ben T,Manufacturing,East
+DEAL-0022,SALES-C006,Apex Manufacturing,P002,4,3513.99,11-03-2023,Negotiation,Clara O,,Central
+DEAL-0023,SALES-C008,BlueStar Finance,P005,3,5969.87,01-18-2023,Closed Won,Clara O,Financial Services,North
+DEAL-0024,SALES-C007,Solaris Renewables,P005,3,6356.11,12-05-2024,Closed Won,Eve S,Energy,West
+DEAL-0025,SALES-C005,Meridian Retail,P005,5,9455.09,02-22-2023,Negotiation,David N,Retail,South
+DEAL-0026,SALES-C007,Solaris Renewables,P002,2,1450.1,12-18-2024,Closed Won,Ben T,Energy,North
+DEAL-0027,SALES-C008,BlueStar Finance,P003,4,5581.72,12-08-2024,Closed Won,David N,Financial Services,Central
+DEAL-0028,SALES-C008,BlueStar Finance,P001,2,2408.97,07-28-2024,Closed Won,David N,Financial Services,Central
+DEAL-0029,SALES-C007,Solaris Renewables,P003,2,2975.8,06-29-2024,Closed Won,Eve S,Energy,East
+DEAL-0030,SALES-C005,Meridian Retail,P005,4,7507.62,09-10-2023,Closed Won,Eve S,Retail,East
+DEAL-0031,SALES-C004,ClearPath Logistics,P003,3,4684.41,12-07-2024,Closed Lost,Clara O,Logistics,West
+DEAL-0032,SALES-C006,Apex Manufacturing,P005,3,5745.35,08-10-2024,Negotiation,David N,Manufacturing,West
+DEAL-0033,SALES-C006,Apex Manufacturing,P002,3,2180.19,03-22-2023,Closed Won,David N,Manufacturing,East
+DEAL-0034,SALES-C008,BlueStar Finance,P002,2,1704.94,10-05-2023,Negotiation,Clara O,Financial Services,South
+DEAL-0035,SALES-C002,UrbanMobility Co,P005,5,9478.56,02-21-2023,Negotiation,Ben T,Transport,South
+DEAL-0036,SALES-C001,Greenwave Energy,P001,4,4637.08,04-28-2024,Closed Won,Ben T,Energy,North
+DEAL-0037,SALES-C003,NovaTech Systems,P004,4,1592.78,07-24-2023,Closed Won,Clara O,Technology,East
+DEAL-0038,SALES-C001,Greenwave Energy,P001,5,5678.66,02-08-2023,Closed Won,David N,Energy,South
+DEAL-0039,SALES-C001,Greenwave Energy,P004,4,1499.62,10-24-2023,Closed Won,Alice M,Energy,East
+DEAL-0040,SALES-C002,UrbanMobility Co,P003,3,4458.91,10-18-2024,Negotiation,Eve S,Transport,West
+DEAL-0041,SALES-C003,NovaTech Systems,P005,4,7636.54,04-26-2023,Closed Won,Ben T,Technology,West
+DEAL-0042,SALES-C005,Meridian Retail,P002,1,837.86,10-30-2023,Negotiation,Ben T,Retail,South
+DEAL-0043,SALES-C007,Solaris Renewables,P004,5,1931.17,02-15-2024,Closed Won,Ben T,Energy,South
+DEAL-0044,SALES-C008,BlueStar Finance,P003,2,2704.1,01-28-2024,Closed Won,David N,Financial Services,East
+DEAL-0045,SALES-C006,Apex Manufacturing,P003,5,7834.32,01-12-2023,Closed Won,Clara O,Manufacturing,South
+DEAL-0046,SALES-C001,Greenwave Energy,P001,4,4614.53,02-20-2024,Negotiation,Clara O,Energy,North
+DEAL-0047,SALES-C005,Meridian Retail,P003,5,7081.27,05-17-2023,Closed Lost,Ben T,Retail,West
+DEAL-0048,SALES-C006,Apex Manufacturing,P004,5,2165.12,07-04-2024,Closed Won,Ben T,Manufacturing,Central
+DEAL-0049,SALES-C002,UrbanMobility Co,P005,4,8045.08,01-06-2024,Closed Won,Eve S,Transport,North
+DEAL-0050,SALES-C001,Greenwave Energy,P005,5,9404.31,07-03-2024,Closed Won,Ben T,Energy,East
+DEAL-0051,SALES-C008,BlueStar Finance,P001,2,2504.12,05-15-2024,Closed Won,Eve S,Financial Services,West
+DEAL-0052,SALES-C001,Greenwave Energy,P004,2,802.12,04-12-2024,Negotiation,Alice M,Energy,Central
+DEAL-0053,SALES-C008,BlueStar Finance,P003,1,1468.78,01-04-2023,Closed Won,Eve S,Financial Services,North
+DEAL-0054,SALES-C001,Greenwave Energy,P004,3,1248.09,07-08-2024,Closed Won,Alice M,Energy,West
+DEAL-0055,SALES-C001,Greenwave Energy,P003,4,5615.98,05-19-2023,Closed Lost,Clara O,Energy,West
+DEAL-0056,SALES-C008,BlueStar Finance,P004,4,1465.68,11-08-2024,Negotiation,Ben T,,East
+DEAL-0057,SALES-C002,UrbanMobility Co,P002,5,3914.45,05-11-2023,Closed Won,Alice M,Transport,North
+DEAL-0058,SALES-C005,Meridian Retail,P004,5,1969.65,01-24-2024,Closed Won,Ben T,Retail,West
+DEAL-0059,SALES-C006,Apex Manufacturing,P002,3,2250.47,04-26-2023,Closed Won,David N,Manufacturing,Central
+DEAL-0060,SALES-C001,Greenwave Energy,P002,2,1461.53,08-31-2024,Closed Won,David N,Energy,Central
+DEAL-0061,SALES-C001,Greenwave Energy,P002,1,784.36,08-28-2023,Negotiation,Ben T,Energy,North
+DEAL-0062,SALES-C003,NovaTech Systems,P005,3,5680.99,08-12-2024,Closed Won,Eve S,Technology,Central
+DEAL-0063,SALES-C006,Apex Manufacturing,P002,3,2580.6,11-07-2024,Negotiation,Ben T,Manufacturing,West
+DEAL-0064,SALES-C005,Meridian Retail,P003,1,1517.02,08-28-2024,Closed Won,David N,Retail,Central
+DEAL-0065,SALES-C008,BlueStar Finance,P001,3,3917.94,11-18-2024,Closed Lost,Eve S,Financial Services,East
+DEAL-0066,SALES-C007,Solaris Renewables,P004,2,767.98,07-08-2023,Negotiation,David N,Energy,South
+DEAL-0067,SALES-C004,ClearPath Logistics,P003,2,3183.47,03-01-2023,Negotiation,David N,Logistics,West
+DEAL-0068,SALES-C003,NovaTech Systems,P004,2,760.8,12-05-2023,Closed Won,David N,Technology,East
+DEAL-0069,SALES-C002,UrbanMobility Co,P005,2,3641.23,01-22-2024,Negotiation,Eve S,Transport,North
+DEAL-0070,SALES-C002,UrbanMobility Co,P002,5,4179.44,07-26-2024,Closed Won,David N,Transport,South
+DEAL-0071,SALES-C006,Apex Manufacturing,P003,1,1413.54,07-14-2023,Closed Won,David N,Manufacturing,South
+DEAL-0072,SALES-C004,ClearPath Logistics,P004,2,808.33,10-17-2023,Closed Lost,David N,Logistics,Central
+DEAL-0073,SALES-C006,Apex Manufacturing,P003,3,4373.68,05-24-2024,Closed Lost,Alice M,Manufacturing,West
+DEAL-0074,SALES-C006,Apex Manufacturing,P002,3,2310.2,02-16-2023,Negotiation,Ben T,Manufacturing,South
+DEAL-0075,SALES-C001,Greenwave Energy,P003,5,8152.14,08-16-2024,Closed Lost,Clara O,Energy,South
+DEAL-0076,SALES-C004,ClearPath Logistics,P003,2,2927.9,09-09-2023,Closed Lost,Eve S,Logistics,East
+DEAL-0077,SALES-C005,Meridian Retail,P004,4,1587.47,12-27-2023,Closed Won,Ben T,Retail,Central
+DEAL-0078,SALES-C008,BlueStar Finance,P002,5,4392.26,03-02-2023,Negotiation,Alice M,Financial Services,North
+DEAL-0079,SALES-C001,Greenwave Energy,P001,4,4451.99,10-07-2024,Closed Won,Alice M,Energy,South
+DEAL-0080,SALES-C001,Greenwave Energy,P002,5,3964.81,03-03-2023,Negotiation,Eve S,Energy,West
+DEAL-0081,SALES-C008,BlueStar Finance,P001,1,1207.73,02-26-2024,Closed Won,Alice M,Financial Services,Central
+DEAL-0082,SALES-C005,Meridian Retail,P005,3,5420.57,12-15-2024,Closed Lost,Ben T,Retail,North
+DEAL-0083,SALES-C002,UrbanMobility Co,P005,2,3792.78,09-26-2024,Negotiation,Clara O,Transport,East
+DEAL-0084,SALES-C005,Meridian Retail,P004,1,389.84,02-20-2024,Closed Lost,Eve S,Retail,South
+DEAL-0085,SALES-C004,ClearPath Logistics,P003,1,1546.12,10-27-2024,Closed Won,Alice M,Logistics,West
+DEAL-0086,SALES-C007,Solaris Renewables,P004,5,1990.4,10-14-2024,Closed Won,Ben T,Energy,North
+DEAL-0087,SALES-C008,BlueStar Finance,P004,3,1215.81,04-08-2023,Negotiation,Alice M,Financial Services,South
+DEAL-0088,SALES-C004,ClearPath Logistics,P005,4,7633.75,03-18-2023,Closed Won,Eve S,Logistics,Central
+DEAL-0089,SALES-C001,Greenwave Energy,P002,3,2167.52,08-01-2023,Negotiation,Ben T,Energy,West
+DEAL-0090,SALES-C002,UrbanMobility Co,P003,2,3038.37,08-03-2024,Closed Lost,Eve S,Transport,East
+DEAL-0091,SALES-C007,Solaris Renewables,P002,1,800.13,12-21-2023,Closed Won,Alice M,Energy,West
+DEAL-0092,SALES-C004,ClearPath Logistics,P001,3,3675.72,09-20-2024,Negotiation,David N,Logistics,East
+DEAL-0093,SALES-C001,Greenwave Energy,P003,4,5988.72,12-31-2023,Negotiation,David N,Energy,West
+DEAL-0094,SALES-C003,NovaTech Systems,P005,4,7337.11,09-25-2024,Closed Won,Ben T,Technology,North
+DEAL-0095,SALES-C002,UrbanMobility Co,P003,2,2928.0,10-11-2024,Closed Won,David N,Transport,East
+DEAL-0096,SALES-C006,Apex Manufacturing,P001,1,1081.25,11-12-2023,Closed Lost,Clara O,Manufacturing,East
+DEAL-0097,SALES-C002,UrbanMobility Co,P002,1,749.98,04-04-2024,Negotiation,Eve S,Transport,Central
+DEAL-0098,SALES-C007,Solaris Renewables,P001,1,1101.51,07-21-2024,Closed Won,Eve S,Energy,Central
+DEAL-0099,SALES-C006,Apex Manufacturing,P004,1,383.35,02-02-2024,Closed Won,Eve S,Manufacturing,South
+DEAL-0100,SALES-C003,NovaTech Systems,P004,2,742.21,11-05-2023,Closed Won,David N,Technology,South
